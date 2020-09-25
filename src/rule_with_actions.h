@@ -113,6 +113,8 @@ class RuleWithActions : public Rule, public RuleWithActionsProperties {
         m_containsCaptureAction(r.m_containsCaptureAction)
         {
             // TODO: Verify if it is necessary to process any other copy.
+            populate(this);
+            m_defaultActions.populate(this);
         };
 
     RuleWithActions &operator=(const RuleWithActions& r) {
@@ -132,6 +134,9 @@ class RuleWithActions : public Rule, public RuleWithActionsProperties {
         m_actionMsg = r.m_actionMsg;
         m_actionLogData = r.m_actionLogData;
         m_containsCaptureAction = r.m_containsCaptureAction;
+
+        populate(this);
+        m_defaultActions.populate(this);
 
         return *this;
         // TODO: Verify if it is necessary to process any other copy.

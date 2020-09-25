@@ -59,6 +59,7 @@
 
 namespace modsecurity {
 
+
 RuleWithActions::RuleWithActions(
     Actions *actions,
     Transformations *transformations,
@@ -189,7 +190,6 @@ void RuleWithActions::executeActionsIndependentOfChainedRuleResult(Transaction *
     for (actions::SetVar *a : getSetVarsActionsPtr()) {
         ms_dbg_a(trans, 4, "Running [independent] (non-disruptive) " \
             "action: " + *a->getName());
-
         a->execute(trans);
     }
 
